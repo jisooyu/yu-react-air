@@ -24,13 +24,14 @@ const axdata = async (stationName, callback) => {
       }
     )
 
-    const data = response.data.response.body.items[0]
+    const {dataTime,pm10Value,pm25Value,no2Value} = response.data.response.body.items[0]
+    console.log("response from axdata", response.data.response.body)
     const airdata = {
       location: stationName,
-      time: data.dataTime,
-      pm10: data.pm10Value,
-      pm25: data.pm25Value,
-      no2: data.no2Value
+      time: dataTime,
+      pm10: pm10Value,
+      pm25: pm25Value,
+      no2: no2Value
     }
 
     callback(undefined, {airquality:airdata})
