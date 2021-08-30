@@ -23,9 +23,11 @@ const axdata = async (stationName, callback) => {
           ServiceKey: ServiceKey}
       }
     )
-
+    // response.data가 어떤 구조로 되어 있는 지를 보기 위해 console 사용.
+    // console.log(response.data)
     const {dataTime,pm10Value,pm25Value,no2Value} = response.data.response.body.items[0]
-    console.log("response from axdata", response.data.response.body)
+    // response.data.response.body 를  콘솔로 확인
+    console.log("response.data.response.body from axdata", response.data.response.body)
     const airdata = {
       location: stationName,
       time: dataTime,

@@ -6,10 +6,9 @@ const axdata = require('./axdata.js')
 app.use(cors())
 
 app.get('/', async (req, res) => {
-    const response = await axdata('중구', (error, {airquality}={})=>{
+    await axdata('강남구', (error, {airquality}={})=>{
         if (error){
-            console.log('error', error)
-            responseInterceptor.send(error)
+            res.send(error)
         }
         res.send(airquality)
     })
